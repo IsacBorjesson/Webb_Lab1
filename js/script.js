@@ -35,6 +35,14 @@ function populateRanklings(json) {
 }
 
 function editRankings(json){
+    document.querySelectorAll(".edit__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e => {
+            if (e.target.id === "edit_Name" && e.target.value.length > 0) {
+                json[1][1] = e.target.value;
+            }
+
+        });
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => { loadRankings(); });
